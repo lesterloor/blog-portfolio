@@ -1,0 +1,25 @@
+html
+  head
+    include head.pug
+  body
+    if errors
+        ul.errors
+          each error in errors
+            div(class="alert alert-danger")= error.msg
+    .bootstrap-form(action='/post', method='POST')
+      .container
+        form
+          .form-group.row
+            label(for="inputName", class="col-sm-2 col-form-label text-right") Title
+            .col-sm-10
+              input(type="text", class="form-control", id="inputName",name="title", placeholder="Full Name")
+        
+              
+          .form-group.row
+            label(for="inputMessage", class="col-sm-2 col-form-label text-right") Post Body
+            .col-sm-10
+              textarea(rows="5", class="form-control", id="inputEmail",name="bodymessage", placeholder="Type your message here")
+              
+          .form-group.row
+            .col-sm-12.text-right
+              input(type="submit", class="btn btn-primary" value="Submit")

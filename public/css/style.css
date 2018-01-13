@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 30px;
+}
+
+.grid-form form {
+  display: grid;
+}
+.grid-form label,
+.grid-form input,
+.grid-form textarea {
+  margin: 10px 0;
+}
+.grid-form input {
+  height: 1.5em;
+  padding: 5px;
+}
+@media (min-width: 475px) {
+  .grid-form form {
+    grid-template-columns: 100px auto auto;
+    max-width: 400px;
+    margin: auto;
+  }
+  .grid-form input,
+  .grid-form textarea {
+    grid-column: 2/span 2;
+  }
+  .grid-form label {
+    text-align: right;
+    padding-right: 1em;
+  }
+}
+.grid-form input[type="submit"] {
+  padding: 0;
+  height: 2em;
+}
+@media (min-width: 475px) {
+  .grid-form input[type="submit"] {
+    grid-column: 3;
+    padding: 0;
+  }
+}
+
+.bootstrap-form form {
+  max-width: 400px;
+  margin: auto;
+  padding: 0;
+}
+.bootstrap-form .form-group input,
+.bootstrap-form .form-group label,
+.bootstrap-form .form-group textarea {
+  margin: 10px 0;
+}
