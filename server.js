@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
 var pg = require("pg");
-
+var addArticle = require("./config/dbconfig.js");
 var bodyParser = require("body-parser");
 var validator = require("express-validator");
 var port = 5000;
@@ -18,25 +18,36 @@ app.use(validator());
 
 //Blog home page
 app.get("/", function(request, response) {
-  response.render("blog");
+  addArticle.findAll().then(function(res) {
+    response.render("blog", {
+      res
+    });
+  });
 });
-//Blog home page
+//Porfolio home page
+app.get("/portfolio", function(request, response) {
+  response.render("portfolio");
+});
+//Blog add blog post
 app.get("/addpost", function(request, response) {
   response.render("addpost");
 });
+
 app.post("/post", function(request, response) {
   request.checkBody("title", "Title cannot be empty.").notEmpty();
   request.checkBody("bodymessage", "Body cannot be empty").notEmpty();
+  request.checkBody("author", "Please enter your name").notEmpty();
   const errors = request.validationErrors();
   if (errors) {
-    response.render("errors", {
+    response.render("addpost", {
       errors
     });
   } else {
-    Insert.sync().then(function() {
-      Insert.create({
+    addArticle.sync().then(function() {
+      addArticle.create({
         title: request.body.title,
-        body: request.body.bodymessage
+        body: request.body.bodymessage,
+        author: request.body.author
       });
       response.redirect("/");
     });

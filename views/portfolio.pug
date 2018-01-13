@@ -1,0 +1,44 @@
+html
+  head
+    include head.pug
+  body
+    include navbar.pug
+    .container
+      // Portfolio Item Heading
+      h1.my-4
+        | Lester's Portfolio
+        small Secondary Text
+      // Portfolio Item Row
+      .row
+        .col-md-8
+          img.img-fluid(src='http://placehold.it/750x500', alt='')
+        .col-md-4
+          h3.my-3 Project Description
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.
+          h3.my-3 Project Details
+          ul
+            li Lorem Ipsum
+            li Dolor Sit Amet
+            li Consectetur
+            li Adipiscing Elit
+      .row
+        h3.my-4 Related Projects
+        .row(style="padding:15px")
+          .col-md-3.col-sm-6.mb-4(style="margin:5px 10px")
+            a(href='#')
+              img.img-fluid(src='http://placehold.it/500x300', style="width:100%" alt='')
+        
+          .col-md-3.col-sm-6.mb-4(style="margin:5px 10px")
+            a(href='#')
+              img.img-fluid(src='http://placehold.it/500x300', style="width:100%" alt='')
+        
+          .col-md-3.col-sm-6.mb-4(style="margin:5px 10px")
+            a(href='#')
+              img.img-fluid(src='http://placehold.it/500x300', style="width:100%" alt='')
+        
+  
+    
+      
+    script(src='https://code.jquery.com/jquery-2.2.4.min.js', integrity='sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')

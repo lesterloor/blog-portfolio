@@ -2,17 +2,14 @@ html
   head
     include head.pug
   body
-    if errors
-        ul.errors
-          each error in errors
-            div(class="alert alert-danger")= error.msg
-    .bootstrap-form(action='/post', method='POST')
+    include navbar.pug
+    .bootstrap-form
       .container
-        form
+        form(action='/post', method='POST')
           .form-group.row
-            label(for="inputName", class="col-sm-2 col-form-label text-right") Title
+            label(class="col-sm-2 col-form-label text-right") Title
             .col-sm-10
-              input(type="text", class="form-control", id="inputName",name="title", placeholder="Full Name")
+              input(type="text", class="form-control",name="title", placeholder="Enter Post Title")
         
               
           .form-group.row
@@ -21,5 +18,17 @@ html
               textarea(rows="5", class="form-control", id="inputEmail",name="bodymessage", placeholder="Type your message here")
               
           .form-group.row
+            label(for="inputName", class="col-sm-2 col-form-label text-right") Author:
+            .col-sm-10
+              input(type="text", class="form-control", id="inputName",name="author", placeholder="Full Name")
+                
+                
+          if errors
+            ul.errors
+              each error in errors
+                div(class="alert alert-danger")= error.msg
+          .form-group.row
             .col-sm-12.text-right
               input(type="submit", class="btn btn-primary" value="Submit")
+    
+    script(src="public/js/index.js")
